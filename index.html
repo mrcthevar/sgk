@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" style="scroll-padding-top: 100px;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shri Gopalakrishna - Pure Veg Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Lato', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              primary: '#FF0000',   // Vibrant Red
+              secondary: '#00BFFF', // Cyan/Sky Blue
+              accent: '#00A651',    // Vibrant Green
+              cream: '#fffaf0',     // Body background
+              dark: {
+                800: '#991b1b',     // Red-800: Visible Dark Red
+                900: '#7f1d1d',     // Red-900: Deep Red
+                950: '#450a0a',     // Red-950: Very Dark Red
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fffaf0; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #FF0000; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #cc0000; 
+      }
+      
+      /* Texture Background */
+      .bg-cream-texture {
+        background-color: #fffaf0;
+        background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-cream-texture text-gray-800 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
