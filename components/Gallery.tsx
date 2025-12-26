@@ -28,20 +28,19 @@ const Gallery: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px]">
-          {GALLERY_IMAGES.map((img, index) => (
+        {/* Masonry Layout: Uses columns instead of fixed grid rows to respect image height */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4">
+          {GALLERY_IMAGES.map((img) => (
             <div 
               key={img.id} 
-              // Create a repeating pattern: 2-col, 1-col, 1-col, 2-col (repeats every 4 items)
-              className={`relative overflow-hidden group rounded-lg shadow-lg border-2 border-transparent hover:border-primary transition-colors ${
-                (index % 4 === 0) || (index % 4 === 3) ? 'md:col-span-2' : ''
-              }`}
+              className="break-inside-avoid mb-4 relative overflow-hidden group rounded-lg shadow-lg border-2 border-transparent hover:border-primary transition-colors"
             >
               <img
                 src={img.url}
                 alt={img.alt}
                 onError={handleImageError}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                // w-full h-auto ensures the image scales to width but keeps its natural height/aspect ratio
+                className="w-full h-auto block transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
             </div>
           ))}
