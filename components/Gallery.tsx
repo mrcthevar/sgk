@@ -2,6 +2,21 @@ import React from 'react';
 import { GALLERY_IMAGES } from '../constants';
 
 const Gallery: React.FC = () => {
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const img = e.currentTarget;
+    const currentSrc = img.src;
+    
+    // Fallback chain: .jpeg -> .jpg -> .JPG -> .png
+    // This ensures that if the file is named differently, we try all common variations until one works.
+    if (currentSrc.endsWith('.jpeg')) {
+        img.src = currentSrc.replace('.jpeg', '.jpg');
+    } else if (currentSrc.endsWith('.jpg')) {
+        img.src = currentSrc.replace('.jpg', '.JPG');
+    } else if (currentSrc.endsWith('.JPG')) {
+        img.src = currentSrc.replace('.JPG', '.png');
+    }
+  };
+
   return (
     <section id="gallery" className="py-24 bg-dark-900 relative">
        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
@@ -25,6 +40,7 @@ const Gallery: React.FC = () => {
               <img
                 src={img.url}
                 alt={img.alt}
+                onError={handleImageError}
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
               />
             </div>

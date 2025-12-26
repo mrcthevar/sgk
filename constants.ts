@@ -309,42 +309,42 @@ export const TESTIMONIALS: Testimonial[] = [
 export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: 'g1',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK1.jpg', 
+        url: '/SGK1.jpeg', 
         alt: 'Radhe Krishna Mural',
     },
     {
         id: 'g2',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK2.jpg',
+        url: '/SGK2.jpeg',
         alt: 'Divine Krishna Art',
     },
     {
         id: 'g3',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK3.jpg',
+        url: '/SGK3.jpeg',
         alt: 'Restaurant Interior - Main Hall',
     },
     {
         id: 'g4',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK4.jpg',
+        url: '/SGK4.jpeg',
         alt: 'Restaurant Interior - Seating',
     },
     {
         id: 'g5',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK5.jpg',
+        url: '/SGK5.jpeg',
         alt: 'Wall Art and Ambience',
     },
     {
         id: 'g6',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK6.jpg',
+        url: '/SGK6.jpeg',
         alt: 'Dining Area',
     },
     {
         id: 'g7',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK7.jpg',
+        url: '/SGK7.jpeg',
         alt: 'Spacious Dining Hall',
     },
     {
         id: 'g8',
-        url: 'https://raw.githubusercontent.com/sgk/main/public/SGK8.jpg',
+        url: '/SGK8.jpeg',
         alt: 'Restaurant Seating Arrangement',
     }
 ];
