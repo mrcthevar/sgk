@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Phone } from 'lucide-react';
+import { ChevronDown, Phone, Download } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -57,6 +57,14 @@ const Hero: React.FC = () => {
           >
             <Phone className="w-4 h-4 text-primary" />
             Order Delivery
+          </a>
+          <a 
+            href="/SGK_Menu.pdf" 
+            download="Shri_Gopalakrishna_Menu.pdf"
+            className="px-8 py-4 bg-gray-900 text-white font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors duration-300 rounded-sm shadow-lg border border-gray-900 flex items-center justify-center gap-2"
+          >
+            <Download className="w-4 h-4" />
+            Download Menu
           </a>
         </div>
         

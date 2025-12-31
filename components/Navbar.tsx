@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 
 const Navbar: React.FC = () => {
@@ -20,21 +20,27 @@ const Navbar: React.FC = () => {
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
-    
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    // Only intercept internal links (starting with #)
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+      setIsMobileMenuOpen(false);
+    } else {
+        // For external links or files (like PDF), allow default behavior
+        setIsMobileMenuOpen(false);
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -76,6 +82,14 @@ const Navbar: React.FC = () => {
               <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
+          <a
+             href="/SGK_Menu.pdf"
+             download="Shri_Gopalakrishna_Menu.pdf"
+             className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-red-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          >
+             <FileText className="w-4 h-4" />
+             PDF Menu
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -105,6 +119,15 @@ const Navbar: React.FC = () => {
             {link.name}
           </a>
         ))}
+        <a
+           href="/SGK_Menu.pdf"
+           download="Shri_Gopalakrishna_Menu.pdf"
+           onClick={() => setIsMobileMenuOpen(false)}
+           className="text-xl font-serif text-primary font-bold flex items-center gap-2 border-2 border-primary/20 px-6 py-3 rounded-full hover:bg-primary/5 transition-colors"
+        >
+           <FileText className="w-5 h-5" />
+           Download PDF Menu
+        </a>
       </div>
     </nav>
   );

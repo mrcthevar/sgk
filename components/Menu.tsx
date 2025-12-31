@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MenuCategory } from '../types';
 import { MENU_ITEMS } from '../constants';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Download } from 'lucide-react';
 
 const Menu: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<MenuCategory>(MenuCategory.SOUTH_INDIAN);
@@ -46,7 +46,16 @@ const Menu: React.FC = () => {
         <div className="text-center mb-12">
           <h3 className="text-secondary uppercase tracking-widest font-bold text-sm mb-2">Our Offerings</h3>
           <h2 className="text-4xl md:text-5xl font-serif text-gray-900">Explore The Menu</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mt-6"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mt-6 mb-8"></div>
+          
+          <a 
+            href="/SGK_Menu.pdf" 
+            download="Shri_Gopalakrishna_Menu.pdf"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary/10 rounded-full text-sm font-bold uppercase tracking-widest text-primary hover:bg-primary hover:text-white transition-all shadow-sm group"
+          >
+            <Download className="w-4 h-4 group-hover:animate-bounce" />
+            Download PDF Menu
+          </a>
         </div>
 
         {/* Category Dropdown */}
